@@ -194,6 +194,7 @@ private void updateNoticeList(){
         lblLoginPassword = new javax.swing.JLabel();
         btnReturnHome = new javax.swing.JButton();
         lblLoginError = new javax.swing.JLabel();
+        imgLoginLog = new javax.swing.JLabel();
         diaBookingDialog = new javax.swing.JDialog();
         txtFldBookingCourtNo = new javax.swing.JTextField();
         txtFldBookingPhone = new javax.swing.JTextField();
@@ -311,7 +312,7 @@ private void updateNoticeList(){
         lblLoginPicture.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/courtcontrol/views/no backgroundsmall.png"))); // NOI18N
         lblLoginPicture.setText("jLabel1");
         pnlLoginMain.add(lblLoginPicture);
-        lblLoginPicture.setBounds(6, 89, 691, 666);
+        lblLoginPicture.setBounds(10, 80, 691, 666);
 
         txtFldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,6 +371,10 @@ private void updateNoticeList(){
         lblLoginError.setPreferredSize(new java.awt.Dimension(20, 100));
         pnlLoginMain.add(lblLoginError);
         lblLoginError.setBounds(950, 430, 290, 30);
+
+        imgLoginLog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/courtcontrol/views/images/150logo.png"))); // NOI18N
+        pnlLoginMain.add(imgLoginLog);
+        imgLoginLog.setBounds(90, 30, 150, 150);
 
         diaBookingDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         diaBookingDialog.setBackground(new java.awt.Color(227, 228, 229));
@@ -548,7 +553,7 @@ private void updateNoticeList(){
         );
 
         pnlCardDashboard.add(pnlDashboardNewBooking);
-        pnlDashboardNewBooking.setBounds(445, 137, 290, 121);
+        pnlDashboardNewBooking.setBounds(445, 137, 0, 0);
 
         tblBookingRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1296,6 +1301,7 @@ private void updateNoticeList(){
         addRequest(new CustomerModel("Nirajan","9841287660","11:00am","2024-12-28",(short) 1));
         
         addBooking(new CustomerModel(1,"Bibhusan","9803639288","10:00am","2024-12-28",(short) 1));
+        addBooking(new CustomerModel(2,"Pawan","9746478675","10:00am","2024-12-28",(short) 1));
         
         addNotice(new NoticeModel(1,"Bibhusan Silwal","2024-12-26","Three Point Contest Announcement","We are going to organize a three point contest with prizepool of 1 lakhs Rupees."));
     }
@@ -1829,6 +1835,7 @@ private void updateNoticeList(){
     private javax.swing.JLabel imgBookingCourtImage1;
     private javax.swing.JLabel imgCourtImage;
     private javax.swing.JLabel imgHeroImg;
+    private javax.swing.JLabel imgLoginLog;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
