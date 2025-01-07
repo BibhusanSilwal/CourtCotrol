@@ -6,7 +6,8 @@ package com.courtcontrol.models;
 
 /**
  *
- * @author bibhu
+ * @author Bibhusan Silwal
+ * LMU ID : 23048642
  */
 public class CustomerModel {
     private int customerId;
