@@ -12,7 +12,9 @@ import com.courtcontrol.models.NoticeModel;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -26,12 +28,12 @@ public class CourtControl extends javax.swing.JFrame {
     private CustomQueue requestQueue;
     private ArrayList<NoticeModel> noticeList;
     private java.awt.CardLayout cardLayout;
-
+    
     public CourtControl() {
         initComponents();
         initializeLayout();
         initializeData();
-
+        
     }
 
     /**
@@ -258,7 +260,6 @@ public class CourtControl extends javax.swing.JFrame {
         lblLoginError = new javax.swing.JLabel();
         imgLoginLog = new javax.swing.JLabel();
         diaBookingDialog = new javax.swing.JDialog();
-        txtFldBookingCourtNo = new javax.swing.JTextField();
         txtFldBookingPhone = new javax.swing.JTextField();
         lblBookingName = new javax.swing.JLabel();
         lblBookingPhoneNumber = new javax.swing.JLabel();
@@ -272,6 +273,7 @@ public class CourtControl extends javax.swing.JFrame {
         txtFldBookingName = new javax.swing.JTextField();
         btnBookRequest = new javax.swing.JButton();
         lblBookingError = new javax.swing.JLabel();
+        cmbBoxCourtNo = new javax.swing.JComboBox<>();
         pnlAdmin = new javax.swing.JPanel();
         pnlAdminNavbar = new javax.swing.JPanel();
         btnAdminDashboard = new javax.swing.JButton();
@@ -358,6 +360,8 @@ public class CourtControl extends javax.swing.JFrame {
         pnlHomePagePanel = new javax.swing.JPanel();
         pnlMainHero = new javax.swing.JPanel();
         txtAreaHeroTitle = new javax.swing.JTextArea();
+        txtAreaHeroTitle.setBackground(null);
+        txtAreaHeroTitle1 = new javax.swing.JTextArea();
         txtAreaHeroTitle.setBackground(null);
         txtAreaHeroTitle2 = new javax.swing.JTextArea();
         txtAreaHeroDesc = new javax.swing.JTextArea();
@@ -461,14 +465,6 @@ public class CourtControl extends javax.swing.JFrame {
         diaBookingDialog.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         diaBookingDialog.setBackground(new java.awt.Color(227, 228, 229));
         diaBookingDialog.getContentPane().setLayout(null);
-
-        txtFldBookingCourtNo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFldBookingCourtNoActionPerformed(evt);
-            }
-        });
-        diaBookingDialog.getContentPane().add(txtFldBookingCourtNo);
-        txtFldBookingCourtNo.setBounds(390, 110, 118, 36);
         diaBookingDialog.getContentPane().add(txtFldBookingPhone);
         txtFldBookingPhone.setBounds(240, 110, 118, 36);
 
@@ -487,7 +483,7 @@ public class CourtControl extends javax.swing.JFrame {
         lblBookingCourt.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblBookingCourt.setText("Court Number");
         diaBookingDialog.getContentPane().add(lblBookingCourt);
-        lblBookingCourt.setBounds(380, 80, 81, 16);
+        lblBookingCourt.setBounds(380, 80, 80, 16);
 
         lblBookingDate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblBookingDate.setText("Date");
@@ -542,6 +538,10 @@ public class CourtControl extends javax.swing.JFrame {
         lblBookingError.setPreferredSize(new java.awt.Dimension(80, 20));
         diaBookingDialog.getContentPane().add(lblBookingError);
         lblBookingError.setBounds(90, 240, 400, 20);
+
+        cmbBoxCourtNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        diaBookingDialog.getContentPane().add(cmbBoxCourtNo);
+        cmbBoxCourtNo.setBounds(390, 110, 110, 40);
 
         pnlAdmin.setPreferredSize(new java.awt.Dimension(1400, 800));
 
@@ -599,7 +599,7 @@ public class CourtControl extends javax.swing.JFrame {
             }
         });
         pnlAdminNavbar.add(btnLogOut);
-        btnLogOut.setBounds(40, 680, 125, 34);
+        btnLogOut.setBounds(15, 680, 150, 34);
 
         pnlAdminCard.setPreferredSize(new java.awt.Dimension(1200, 800));
         pnlAdminCard.setLayout(new java.awt.CardLayout());
@@ -686,10 +686,6 @@ public class CourtControl extends javax.swing.JFrame {
         pnlBookingRequest.setLayout(pnlBookingRequestLayout);
         pnlBookingRequestLayout.setHorizontalGroup(
             pnlBookingRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBookingRequestLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
-                .addComponent(btnDeleteRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBookingRequestLayout.createSequentialGroup()
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(pnlBookingRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,6 +695,10 @@ public class CourtControl extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBookingRequestLayout.createSequentialGroup()
                         .addComponent(sclPaneBookingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41))))
+            .addGroup(pnlBookingRequestLayout.createSequentialGroup()
+                .addGap(202, 202, 202)
+                .addComponent(btnDeleteRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlBookingRequestLayout.setVerticalGroup(
             pnlBookingRequestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -707,9 +707,9 @@ public class CourtControl extends javax.swing.JFrame {
                 .addComponent(lblBookingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(sclPaneBookingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDeleteRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35))
+                .addGap(29, 29, 29))
         );
 
         pnlDashboardBooking.setBackground(new java.awt.Color(255, 255, 255));
@@ -1272,7 +1272,7 @@ public class CourtControl extends javax.swing.JFrame {
             }
         });
         pnlMainNavbar.add(lblNavbarHomelbl);
-        lblNavbarHomelbl.setBounds(610, -20, 110, 110);
+        lblNavbarHomelbl.setBounds(610, 0, 110, 70);
 
         lblNavbarBooking.setBackground(new java.awt.Color(255, 255, 255));
         lblNavbarBooking.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1314,7 +1314,7 @@ public class CourtControl extends javax.swing.JFrame {
             }
         });
         pnlMainNavbar.add(lblNavbarAnnouncement);
-        lblNavbarAnnouncement.setBounds(850, 0, 120, 70);
+        lblNavbarAnnouncement.setBounds(870, 0, 120, 70);
 
         btnLoginMain.setBackground(new java.awt.Color(36, 74, 138));
         btnLoginMain.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1346,8 +1346,9 @@ public class CourtControl extends javax.swing.JFrame {
         sclPaneCustomerPage.setBorder(null);
         sclPaneCustomerPage.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         sclPaneCustomerPage.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        sclPaneCustomerPage.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sclPaneCustomerPage.setPreferredSize(new java.awt.Dimension(1400, 680));
-        sclPaneCustomerPage.setViewportView(pnlMain);
+        sclPaneCustomerPage.setViewportView(pnlMainHero);
 
         pnlHomePagePanel.setBackground(new java.awt.Color(227, 228, 229));
         pnlHomePagePanel.setPreferredSize(new java.awt.Dimension(1400, 1500));
@@ -1363,11 +1364,23 @@ public class CourtControl extends javax.swing.JFrame {
         txtAreaHeroTitle.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         txtAreaHeroTitle.setForeground(new java.awt.Color(255, 255, 255));
         txtAreaHeroTitle.setRows(5);
-        txtAreaHeroTitle.setText("It's Time to HOOP!");
+        txtAreaHeroTitle.setText("It's Time to");
         txtAreaHeroTitle.setBorder(null);
         txtAreaHeroTitle.setFocusable(false);
         txtAreaHeroTitle.setOpaque(false);
-        pnlMainHero.add(txtAreaHeroTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 450, 80));
+        pnlMainHero.add(txtAreaHeroTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 260, 80));
+
+        txtAreaHeroTitle1.setEditable(false);
+        txtAreaHeroTitle1.setBackground(new Color(0,0,0,0));
+        txtAreaHeroTitle1.setColumns(20);
+        txtAreaHeroTitle1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        txtAreaHeroTitle1.setForeground(new java.awt.Color(255, 102, 0));
+        txtAreaHeroTitle1.setRows(5);
+        txtAreaHeroTitle1.setText("HOOP!");
+        txtAreaHeroTitle1.setBorder(null);
+        txtAreaHeroTitle1.setFocusable(false);
+        txtAreaHeroTitle1.setOpaque(false);
+        pnlMainHero.add(txtAreaHeroTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 80, 160, 80));
 
         txtAreaHeroTitle2.setBackground(new Color(0,0,0,0));
         txtAreaHeroTitle2.setColumns(20);
@@ -1391,7 +1404,7 @@ public class CourtControl extends javax.swing.JFrame {
         txtAreaHeroDesc.setOpaque(false);
         pnlMainHero.add(txtAreaHeroDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 290, 573, 65));
 
-        btnHeroBtn.setBackground(new java.awt.Color(36, 74, 138));
+        btnHeroBtn.setBackground(new java.awt.Color(255, 51, 0));
         btnHeroBtn.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnHeroBtn.setForeground(new java.awt.Color(255, 255, 255));
         btnHeroBtn.setText("BOOK NOW");
@@ -1536,7 +1549,7 @@ public class CourtControl extends javax.swing.JFrame {
             .addGroup(pnlHomePagePanelLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(pnlMainHero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(pnlServicesSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
         );
@@ -2036,6 +2049,7 @@ public class CourtControl extends javax.swing.JFrame {
         pnlMainCard.add(pnlAnnouncementPage);
         pnlMainCard.repaint();
         pnlMainCard.revalidate();
+        
     }//GEN-LAST:event_lblNavbarAnnouncementMouseClicked
 
     /**
@@ -2054,6 +2068,7 @@ public class CourtControl extends javax.swing.JFrame {
         pnlMainCard.add(pnlHomePage);
         pnlMainCard.repaint();
         pnlMainCard.revalidate();
+        
     }//GEN-LAST:event_lblNavbarHomelblMouseClicked
 
     /**
@@ -2072,10 +2087,6 @@ public class CourtControl extends javax.swing.JFrame {
         diaBookingDialog.setSize(600, 450);
     }//GEN-LAST:event_btnBookingButtonActionPerformed
 
-    private void txtFldBookingCourtNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFldBookingCourtNoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFldBookingCourtNoActionPerformed
-
     /**
      * Handles the action when the "Clear Request" button is clicked.
      *
@@ -2092,7 +2103,7 @@ public class CourtControl extends javax.swing.JFrame {
         txtFldBookingPhone.setText("");
         txtFldBookingDate.setText("");
         txtFldBookingTime.setText("");
-        txtFldBookingCourtNo.setText("");
+        cmbBoxCourtNo.setSelectedIndex(0);
 
 
     }//GEN-LAST:event_btnClearRequestActionPerformed
@@ -2135,7 +2146,7 @@ public class CourtControl extends javax.swing.JFrame {
         String customerPhone = txtFldBookingPhone.getText();
         String customerDate = txtFldBookingDate.getText();
         String customerTime = txtFldBookingTime.getText();
-        String customerCourtNoText = txtFldBookingCourtNo.getText();
+        String customerCourtNoText = (String) cmbBoxCourtNo.getSelectedItem();
 
         if (customerName.isEmpty()) {
             lblBookingError.setText("Customer Name is required.");
@@ -2157,7 +2168,7 @@ public class CourtControl extends javax.swing.JFrame {
                 txtFldBookingPhone.setText("");
                 txtFldBookingDate.setText("");
                 txtFldBookingTime.setText("");
-                txtFldBookingCourtNo.setText("");
+                cmbBoxCourtNo.setSelectedIndex(0);
                 addRequest(new CustomerModel(customerName, customerPhone, customerTime, customerDate, customerCourtNo));
             } catch (NumberFormatException ex) {
                 lblBookingError.setText("Invalid Court Number. Must be a number.");
@@ -2196,6 +2207,7 @@ public class CourtControl extends javax.swing.JFrame {
 
     private void btnNewBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewBookingActionPerformed
         // TODO add your handling code here:
+        try{
         String customerIdText = txtFldCustomerId.getText();
         String customerName = txtFldName.getText();
         String customerPhone = txtFldPhone.getText();
@@ -2245,6 +2257,10 @@ public class CourtControl extends javax.swing.JFrame {
                     lblAdminBookingError.setText("Invalid Customer ID or Court Number. Must be a number.");
                 }
             }
+        }
+        }
+        catch (NumberFormatException ex){
+            lblAdminBookingError.setText("Invalid Customer ID or Court Number. Must be a number.");
         }
     }//GEN-LAST:event_btnNewBookingActionPerformed
 
@@ -2678,6 +2694,7 @@ public class CourtControl extends javax.swing.JFrame {
     private javax.swing.JButton btnReturnHome;
     private javax.swing.JButton btnUpdateBooking;
     private javax.swing.JButton btnUpdateNotice;
+    private javax.swing.JComboBox<String> cmbBoxCourtNo;
     private javax.swing.JComboBox<String> cmbSortTable;
     private javax.swing.JDialog diaBookingDialog;
     private javax.swing.JLabel imgAdminLogo;
@@ -2775,12 +2792,12 @@ public class CourtControl extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaHeroDesc;
     private javax.swing.JTextArea txtAreaHeroDesc1;
     private javax.swing.JTextArea txtAreaHeroTitle;
+    private javax.swing.JTextArea txtAreaHeroTitle1;
     private javax.swing.JTextArea txtAreaHeroTitle2;
     private javax.swing.JTextArea txtAreaNotice;
     private javax.swing.JTextArea txtAreaServicesCourt;
     private javax.swing.JTextArea txtAreaServicesFood;
     private javax.swing.JTextArea txtAreaServicesFood1;
-    private javax.swing.JTextField txtFldBookingCourtNo;
     private javax.swing.JTextField txtFldBookingDate;
     private javax.swing.JTextField txtFldBookingName;
     private javax.swing.JTextField txtFldBookingPhone;
